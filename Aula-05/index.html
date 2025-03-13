@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="br-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Principais formatações </h1>
+    <h2>Negrito / Destaque</h2>
+    <p> Na frase temos uma <b>parte do texto em negrito</b> usando a tag B (não semântica) </p>
+    <p> Na frase temos uma <strong>parte do texto em negrito</strong> usando a tag strong (com semântica) </p>
+    <h2> Itálico / Ênfase</h2>
+    <p>Nesta frase vamos entrar com uma palavra em <i>itálico</i> usando a tag i (não semântica) </p>
+    <p>Nesta frase vamos entrar com uma palavra em <em>itálico</em> usando a tag EM (com semântica) </p>
+    <h2>Texto Marcador</h2>
+    <p>Aqui vamos usar um texto com destaque <mark style="background:green;">de marcador de texto </mark>usando mark
+    </p>
+    <p>Aqui vamos usar um texto com destaque <mark> de marcador de texto</mark> usando mark</p>
+    <h2>Texto grande e pequeno</h2>
+    <p>Estamos trabalhando aqui com um <big>texto grande</big> e um <small>texto pequeno</small> nesta frase</p>
+    <h2>Texto deletado</h2>
+    <p>Neste paragrafo vamos trabalhar com um texto <del>que foi excluído </del>da frase (forma semântica) </p>
+    <h2>Texto inserido</h2>
+    <p>Nesta frase vamos demonstrar como <ins>destacar um texto inserido </ins>na frase de forma semântica</p>
+    <p>Neste frase vamos demonstrar como<u> destacar um texto inserido </u>na frase de forma não semântica</p>
+    <h2>Texto sobrescrito</h2>
+    <p> vamos demostrar uma formula da equação do segundo grau ax<sup>2</sup> + bx + c = 0 usando tag sup</p>
+    <h2>Texto subescrito</h2>
+    <p> vamos demostrar o texto subescrito com a formula da agua H<sub>2</sub>O</p>
+    <h2>Trecho de código fonte</h2>
+    <p>Neste exemplo vou demostrar um trecho de código</p>
+    <p> inserido o comando <code>document.getElementById('edtCodigo')</code> que é um comando java script </p>
+    <p>Inserindo um longo codigo me python: </p>
+    <p>
+    <pre>
+            <code>
+      def remove_outlier(df_old):
+             #Tratando Outlier 
+             #https://medium.com/turing-talks/como-fazer-uma-limpeza-de-dados-completa-em-python-7abc9dfc19b8
+            
+             df_old.reset_index(drop=True,inplace=True )
+            
+             #remove duplicate 
+             df_old.drop_duplicates(keep='first',inplace=True)
+            
+            
+              #  df_old.quantile(0.25),  df_old.quantile(0.75), df_old['TEMPERATURA_DOMO_INICIO'].quantile(0.25)
+            
+            
+             #Step-5: Finding the IQR
+             percentile25 = df_old['TEMPERATURA_DOMO_INICIO'].quantile(0.25)
+             percentile75 = df_old['TEMPERATURA_DOMO_INICIO'].quantile(0.75)
+            
+             iqr = percentile75 - percentile25
+            
+            
+             #Step-6: Finding the upper and lower limits
+             upper_limit = percentile75 + 1.5 * iqr
+             lower_limit = percentile25 - 1.5 * iqr
+            
+             #Step-7: Finding outliers
+             df_outlier = df_old[(df_old['TEMPERATURA_DOMO_INICIO'] > upper_limit) | (df_old['TEMPERATURA_DOMO_INICIO'] < lower_limit)]
+             
+            
+             #Step-8: Trimming outliers
+             new_df_date = df_old.drop(df_outlier.index)
+            
+             
+             new_df_date.index = range(1, len(new_df_date) + 1)
+             new_df_date.reset_index(drop=True)
+            
+             #new_df_date.to_csv('../IFES/Export/hs_dados-new.csv')
+            
+            
+            return new_df_date
+            </code>
+       </pre>
+    <h2> Citações (quotation) simples</h2>
+    <p> segundo Steve Jobs <q>A tecnologia move o mundo</q></p>
+    <h2> Citações completas (livros) </h2>
+    <p> Segundo Sandra Kussunoki no seu livro A dança e o ventre: </p>
+    <blockquote
+        cite="https://www.google.com.br/books/edition/A_Dan%C3%A7a_e_o_Ventre_Apar%C3%AAncia_corporal/vhmHBAAAQBAJ?hl=pt-BR&gbpv=1&dq=html5+para+leigos&printsec=frontcover">
+        Dados existentes sobre intervenções cirúrgicas nos corpos contemporâneos visando à obtenção de um corpo mais
+        próximo do padrão estético tais como lipoaspiração, próteses de silicone, entre outras, comprovam essa busca
+        obsessiva pelo ideal de perfeição, que é baseado princpalmente na magreza.
+    </blockquote>
+    <h2> Abreviações </h2>
+    <p> Estamos estudando <abbr title="HiperText Markup Language">HTML</abbr> e <abbr
+            title="Cascate Style Sheet">CSS</abbr></p>
+    <h2>Texto Invertivo</h2>
+    <p><bdo dir="ltr">Estou estudando HTML </bdo></p>
+    <p><bdo dir="rtl">Estou estudando HTML </bdo></p>
+
+
+    <h2>Geração de codigo externo</h2>
+    <p>Esse é um comando usando em javascript <code>document.getdomentbyid('edtnome') </code></p>
+
+    <p> Esse codigo abaixo é um bloco de comando em python </p>
+    <pre>
+        <code>
+            # Função para calcular o fatorial
+            def fatorial(n):
+                if n == 0 or n == 1:
+                    return 1
+                else:
+                    return n * fatorial(n - 1)
+
+            # Solicita ao usuário um número
+            numero = int(input("Digite um número para calcular o fatorial: "))
+
+            # Calcula e exibe o fatorial
+            resultado = fatorial(numero)
+            print(f"O fatorial de {numero} é {resultado}.")
+
+        </code>
+    </pre>
+
+
+</body>
+
+</html>
