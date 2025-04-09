@@ -1,0 +1,45 @@
+/* Parametros */
+@charset "UTF-8";
+/*Configurações globais */
+/*Mostrar primeiro sem as configurações globais*/
+*{
+ 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: linear-gradient(90deg, #0869A6,#16B4F2,#0388A6);
+}
+main{ /*define a main, caixa principal da pagina */
+    background-color: white; /*cor de fundo da caixa*/
+    box-shadow: 30px  30px  30px  #0869A6; /* define uma sombra, os parametros: 
+        tamanho pra baixo , tamanho para o lado, espalhamento da sompra, cor*/
+        /*Pode trabalhar a sompra mais transparente e menos gritante*/ 
+    
+    width: 600px; /*tamanho da caixa de texto*/
+    padding: 50px; /*acochamento margem interna da main*/
+    margin: auto; /*margem da caixa em relação a pagina*/
+    border-radius: 15px; /*quebra das quinas*/
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+      
+
+}
+h1{
+    color: #0869A6;
+    text-align: center; /*Alinhamento */ 
+    text-shadow: 1px 1px 1px #05528383;
+
+}
+h2{
+    color: #0388A6;
+}
+
+p{
+    text-align: justify;
+}
+
+/*,#F1BC20*/

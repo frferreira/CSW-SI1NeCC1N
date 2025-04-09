@@ -1,0 +1,57 @@
+/* Parametros */
+@charset "UTF-8";
+/*Configurações globais */
+/*Mostrar primeiro sem as configurações globais
+*{
+    height: 100%
+}
+*/
+main {  
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  
+}
+
+.body{
+
+    
+    padding: auto;
+
+    /*backgroudn-image - para colocar uma imagem no fundo, mas usando a função lienar-gradiente me permite colocar um degradê*/
+    background-image: linear-gradient(180deg, white, black);
+    /*usando um degradê com o adoble color usando a logo da F1*/ 
+    background-image: linear-gradient(90deg,#D90404, #D94A4A, #F28080, #F2B6B6,#F2F2F2);
+
+    /*Usando a opção do radial */
+     background-image: radial-gradient(circle,#D90404, #D94A4A, #F28080, #F2B6B6,#F2F2F2);
+
+    
+    /*usando o % para a distribuição das cores */ 
+    /*background-image: linear-gradient(90deg,#D90404 5%, #D94A4A, #F28080, #F2B6B6,#F2F2F2);*/
+
+    
+    /*fixa o deagradê no fundo*/
+    background-attachment: fixed;
+    
+    
+    /*usando uma imagem no fundo*/ 
+    /*background-image: url(istockphoto-1370813651-612x612.jpg);
+    background-repeat: no-repeat, repeat;
+    height: 1500px; */
+
+    
+}
+
+.fundo{
+    
+    width: 100%;
+    height: 100%;
+    background-image: url('./torcida-flamengo-maraca.webp ');
+    background-repeat:repeat-y;
+    background-size: cover;
+    text-align: center;
+}
