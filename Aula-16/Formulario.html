@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <style>
+        h1 {
+            align-self: center;
+            ;
+        }
+
+        .caixaLadoLado {
+            display: flex;
+            flex-direction: row;
+            align-content: space-between;
+            align-items: baseline;
+
+        }
+
+        .caixaSimples {
+            border-radius: 10px;
+            border: solid 3px;
+            padding: 10px;
+            width: 350px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap align-items;
+            margin: 15px;
+        }
+
+        .caixaSelecao {
+            width: 100px;
+        }
+
+        .caixaBotoes {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-direction: row;
+
+            padding: 10px;
+        }
+
+        button {
+            width: 260px;
+            height: 60px;
+            color: blue;
+            margin: 10px;
+        }
+
+        button:hover {
+
+            color: white;
+            background-color: blue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <h2 id="secao1">Formulario</h2>
+        <form action="processarForm.php" method="post">
+            <div class="caixaLadoLado">
+
+                <div class="caixaSimples" style="flex-basis: 950px;">
+                    <h1>Dados pessoais</h1>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required><br>
+
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" min="18" max="65">
+                    <br>
+                    <label for="email">E-mail (patter):</label>
+                    <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> <br>
+
+                    <label for="cor">Escolha uma cor:</label>
+                    <input type="color" id="cor" name="cor"> <br>
+                    <label for="data-hora">Data e Hora:</label>
+                    <input type="datetime-local" id="data-hora" name="data-hora" value="2022-04-5T14:30"><br>
+                    <label for="arquivo">Selecione um arquivo:</label>
+                    <input type="file" id="arquivo" name="arquivo"><br>
+
+                </div>
+                <div style="display:flex;justify-content: center;flex-wrap:wrap;flex-basis: 950px">
+                    <div class="caixaSimples">
+                        <h1>Login</h1>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required><br>
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required><br>
+                    </div>
+                    <div class="caixaLadoLado">
+                        <div class="caixaSimples caixaSelecao">
+                            <div>
+                                <input type="checkbox" id="checkbox1" name="checkbox1" value="1">
+                                <label for="checkbox1">Opção 1</label><br>
+                                <input type="checkbox" id="checkbox2" name="checkbox2" value="2">
+                                <label for="checkbox2">Opção 2</label><br>
+                                <input type="checkbox" id="checkbox3" name="checkbox3" value="3">
+                                <label for="checkbox3">Opção 3</label><br>
+                            </div>
+                        </div>
+
+                        <br><br>
+                        <div class="caixaSimples caixaSelecao">
+                            <div>
+                                <label for="opcao1">Opção 1</label>
+                                <input type="radio" id="opcao1" name="opcao" value="1"><br>
+                                <label for="opcao2">Opção 2</label>
+                                <input type="radio" id="opcao2" name="opcao" value="2"><br>
+                                <label for="opcao3">Opção 3</label>
+                                <input type="radio" id="opcao3" name="opcao" value="3"><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display:flex;justify-content: center;flex-wrap:wrap;">
+                    <div class="caixaSimples">
+                        <label for="comentario">Deixe um comentário:</label><br>
+                        <textarea id="comentario" name="comentario" rows="5" cols="50"></textarea>
+                        <br>
+                    </div>
+                    <div class="caixaSimples caixaSelecao" style="width: 200px;">
+                        <div>
+                            <label for="esporte">Esporte favorito:</label>
+                            <select id="esporte" name="esporte">
+                                <option value="esporte-01">Futebol</option>
+                                <option value="esporte-02">Basquete</option>
+                                <option value="esporte-03">Vôlei</option>
+                            </select>
+                        </div>
+                        <br> <br>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <br><br>
+
+
+
+            <div class="caixaBotoes">
+                <button type="submit">Enviar</button>
+                <button type="reset">"Limpar"</button>
+            </div>
+        </form>
+        <br><br>
+
+
+    </main>
+
+
+
+</body>
+
+</html>
