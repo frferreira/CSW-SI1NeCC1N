@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <main class="main-section">
+
+        <div class="container">
+            <div id="nascimento" class="logo">
+                <h1>Calculadora de Idade</h1>
+            </div>
+        </div>
+
+        <div>
+            <span>Data de Nascimento:</span>
+            <input class="dia" id="dia" type="number" max="31">
+            <select class="mes" name="mes" id="mes">
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+            </select>
+            <input class="ano" id="ano" type="number">
+        </div>
+
+        <button class="botao" onclick="calculaidade()">Calcula Idade</button>
+
+        <div>
+            <label onmouseover="calculaidade()" id="resultado">Idade</label>
+            <br>
+            <br>
+            <br>
+
+
+        </div>
+
+        <hr>
+        <div>
+
+            <div class="container">
+                <div id="calculadora" class="logo">
+                    <h1>Calculadora</h1>
+                </div>
+            </div>
+            <div>
+                <input type="number" name="" id="n1">
+
+                <select class="mes" name="operacao" id="operacao">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="number" name="" id="n2"> <br>
+                <button class="botao" onclick="Calcular()">Calcula</button>
+                <div>
+                    <label onmouseover="Calcular()" id="resultadocalc">Idade</label>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+</body>
+<script>
+    document.getElementById("nascimento").style.backgroundImage = "url('nascimento.jpeg')";
+    document.getElementById("calculadora").style.backgroundImage = "url('operacoes.jpeg')";
+
+    function calculaidade() {
+        var hoje = new Date()
+
+        let result = document.getElementById("resultado")
+
+        dia = document.getElementById("dia").value
+        mes = document.getElementById("mes").value
+        ano = document.getElementById("ano").value
+
+        if (dia <= 0 || dia > 31 || ano <= 0) {
+            alert("Digite uma data de nascimento valida")
+            return
+        }
+
+        nascimento = new Date(ano + "/" + mes + "/" + dia);
+
+        var idade = hoje.getFullYear() - nascimento.getFullYear()
+
+        let dth = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate())
+        let dth2 = new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate())
+
+
+        if (dth < dth2) {
+            idade--;
+        }
+
+
+
+        result.style.color = random_rgba();
+        result.innerHTML = "<b>" + `  Você tem ${idade} ` + "</b>"
+
+
+
+
+    }
+    document.getElementById("imagem").innerHTML = ""
+    document.getElementById("imagem").style.backgroundImage.url = "operacoes.jpeg";
+
+    function Calcular() {
+        let valor1 = Number(document.getElementById("n1").value)
+        let valor2 = Number(document.getElementById("n2").value)
+        let operador = (document.getElementById("operacao").value)
+        let resultadocalc = 0
+        switch (operador) {
+            case '+':
+                resultadocalc = valor1 + valor2;
+                break;
+            case '-':
+                resultadocalc = valor1 - valor2;
+                break;
+            case '*':
+                resultadocalc = valor1 * valor2;
+                break;
+            case '/':
+                resultadocalc = valor1 / valor2;
+                break;
+            default:
+                alert('operador não identificado!');
+        }
+
+
+        let result = document.getElementById("resultadocalc")
+
+        result.style.color = random_rgba();
+        result.innerHTML = resultadocalc
+
+    }
+
+    function idade(nascimento, hoje) {
+        var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
+        if (new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
+            new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate()))
+            diferencaAnos--;
+        return diferencaAnos;
+    }
+
+    function random_rgba() {
+        var o = Math.round,
+            r = Math.random,
+            s = 255;
+        return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+    };
+
+
+    /* $(document).ready(function () {
+         $("number").focusout(function () {
+             if ($(this).val() == '') {
+                 $(this).css('border', 'solid 2px red');
+             }
+             else {
+ 
+                 // If it is not blank.
+                 $(this).css('border', 'solid 2px green');
+             }
+         }).trigger("focusout");
+     });*/
+
+
+</script>
+
+</html>

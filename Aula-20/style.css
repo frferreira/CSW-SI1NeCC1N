@@ -1,0 +1,156 @@
+ body {
+      background: #f5f8fa;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #0f507d;
+      display: flex;
+    }
+    .container h1 {
+        color: #bbb;
+        text-align: center;
+    }
+.container #calculadora h1 {
+        color: white;
+        text-align: center;
+    }
+
+    
+    label{
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .fundo {
+            width: 550px;
+            height: 40px;
+            border: 1px;
+            border-radius: 5%;
+            border-color: black;
+            border-style: solid;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            margin: 0 auto;
+            margin-top: 20px;       
+        }
+
+    .enunciado {
+      max-width: 600px;
+      margin: 32px auto 0;
+      background: #fff;
+      padding: 28px 36px 20px 36px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .enunciado h2 {
+      color: #1364a1;
+      margin-bottom: 14px;
+    }
+    .logo{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        background-color: black;
+    }
+    .enunciado ol {
+      margin-left: 20px;
+    }
+    .main-section {
+      max-width: 520px;
+      margin: 38px auto 0;
+      background: #fff;
+      padding: 28px 32px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .dia {
+        width: 30px;
+        margin-right: -2px;
+        margin-right: 5px;
+        width: 10%;
+    }
+
+    .mes {
+        margin-left: -2px;
+        margin-right: -2px;
+        margin-right: 5px;
+    }
+
+    .ano {
+        margin-left: -2px;
+        width: 50px;
+        margin-right: 5px;
+        width: 20%;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    input, select {
+      padding: 5px;
+      font-size: 1em;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      margin: 5px 5px 5px 5px
+    }
+    .botao {
+      width: 100%;
+      height: 100%;
+      background: #1364a1;
+      color: #fff;
+      border: none;
+      padding: 12px 0;
+      border-radius: 5px;
+      font-size: 1.07em;
+      cursor: pointer;
+      margin-top: 4px;
+   
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0f507d;
+    }
+    span{
+      font-weight: 500;
+      color: #1364a1;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    th, td {
+      padding: 9px 7px;
+      border: 1px solid #d5dde0;
+      text-align: left;
+    }
+    th {
+      background: #ebf3f9;
+    }
+    td {
+      background: #f8fcff;
+    }
+    @media (max-width: 650px) {
+      .enunciado, .main-section {
+        max-width: 95vw;
+        padding: 12px 5vw;
+      }
+      th, td {
+        font-size: 14px;
+        padding: 6px 3px;
+      }
+    }
