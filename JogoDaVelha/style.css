@@ -22,12 +22,16 @@ body{
 
 .background-title{
   display:flex;
+  
   top: 20px;
   font-size: 4rem;
   color: rgba(0, 0, 0, 0.537);
   z-index: -1;
   align-items:center;
   justify-content:center;
+  background-image: url(jogo_da_velha_2.jpg);
+  background-size: cover;
+  height: 30vh;
 }
 
 .app{

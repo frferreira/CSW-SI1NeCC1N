@@ -35,12 +35,30 @@ const winningCombos = [
 
 // cria as 9 células dinamicamente
 function createBoard(){
-
+  boardElement.innerHTML = ''; // limpa antes
+  for (let i = 0; i < 9; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('cell');
+    cell.setAttribute('data-index', i);
+    cell.setAttribute('role', 'button');
+    cell.setAttribute('aria-label', 'célula ' + (i+1));
+    cell.addEventListener('click', onCellClick);
+    boardElement.appendChild(cell);
+  }
 }
 
 // quando o jogador clica numa célula
 function onCellClick(e){
-  
+  const index = Number(e.currentTarget.getAttribute('data-index'));
+
+  // validação: célula já ocupada ou jogo parado
+  if (!gameActive) return;
+  if (board[index] !== '') {
+    // exemplo de alteração visual via JS: adiciona classe temporária
+    const cell = e.currentTarget;
+    cell.classList.add('taken');
+    setTimeout(() => cell.classList.remove('taken'), 300);
+    return;
   }
 
   // marcar no array e no HTML
@@ -74,7 +92,15 @@ function onCellClick(e){
 
 // checar vitória ou empate
 function checkResult(){
- 
+  // checa cada combinação vencedora com um laço
+  for (let i = 0; i < winningCombos.length; i++) {
+    const [a, b, c] = winningCombos[i];
+    // estruturas condicionais
+    if (board[a] !== '' && board[a] === board[b] && board[b] === board[c]) {
+      // marca as células vencedoras com uma classe CSS
+      highlightWin(winningCombos[i]);
+      return 'win';
+    }
   }
 
   // se não houver espaços vazios -> empate
@@ -121,7 +147,9 @@ function novaPartida(){
 }
 
 // eventos dos botões
-
+btnReset.addEventListener('click', resetBoard);
+btnNovaPartida.addEventListener('click', novaPartida);
 
 // inicialização
-
+createBoard();
+updateScoreboard();
