@@ -1,0 +1,153 @@
+:root{
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --accent: #4f46e5;
+  --accent-2: #06b6d4;
+  --text: #111827;
+  --win: #a7f3d0;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(135deg,var(--bg),#eef2ff);
+  color:var(--text);
+  margin:0;
+  padding:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+}
+
+.background-title{
+  display:flex;
+  top: 20px;
+  font-size: 4rem;
+  color: rgba(0, 0, 0, 0.537);
+  z-index: -1;
+  align-items:center;
+  justify-content:center;
+}
+
+.app{
+  width:100%;
+  max-width:700px;
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+}
+
+h1{
+  text-align:center;
+  margin:0 0 12px 0;
+  font-size:1.6rem;
+}
+
+.status-area{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+}
+
+#status{
+  font-size:1rem;
+}
+
+.scoreboard{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  font-size:0.95rem;
+}
+
+.board-area{
+  display:flex;
+  justify-content:center;
+  margin-bottom:14px;
+}
+
+.board{
+  display:grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap:10px;
+  padding:10px;
+}
+
+.cell{
+  background: linear-gradient(180deg,#ffffff,#f8fafc);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.3rem;
+  font-weight:700;
+  user-select:none;
+  cursor:pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 200ms ease;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.06);
+}
+
+/* pseudoclasse hover - destaque visual quando o cursor passa */
+.cell:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(2,6,23,0.12);
+}
+
+/* célula inválida (já ocupada) */
+.cell.taken{
+  cursor: not-allowed;
+  opacity:0.9;
+  transform:none;
+}
+
+/* estilo para as células vencedoras */
+.cell.win{
+  background: linear-gradient(90deg,var(--win),#d1fae5);
+  box-shadow: 0 10px 20px rgba(16,185,129,0.12);
+  color: #064e3b;
+}
+
+/* animação para indicar vitória */
+@keyframes pop {
+  0% { transform: scale(.8); opacity: 0.6}
+  60% { transform: scale(1.06); opacity: 1}
+  100% { transform: scale(1); }
+}
+.cell.win { animation: pop .35s ease both; }
+
+.controls{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:6px;
+}
+
+button{
+  padding:8px 14px;
+  border-radius:8px;
+  border: none;
+  background:var(--accent);
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition: transform 120ms ease, opacity 120ms;
+}
+
+
+
+/* botão secundário */
+#btnNovaPartida{
+  background:var(--accent-2);
+}
+
+/* responsividade */
+@media (max-width:420px){
+  .board{ grid-template-columns: repeat(3, 80px); grid-template-rows: repeat(3, 80px); gap:8px; }
+  .cell{ font-size:1.8rem; border-radius:8px; }
+}

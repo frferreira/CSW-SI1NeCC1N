@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <main class="app">
+        <div class="background-title"><h1>Jogo da Velha</h1></div>
+        <section class="status-area">
+            <div id="status">Jogador atual: <strong id="currentPlayer">X</strong></div>
+            <div class="scoreboard">
+                <span>Placar — X: <strong id="scoreX">0</strong></span>
+                <span>O: <strong id="scoreO">0</strong></span>
+                <span>Empates: <strong id="scoreEmpate">0</strong></span>
+            </div>
+            </div>
+        </section>
+        <section class="board-area">
+            <div id="board" class="board" aria-label="Tabuleiro do jogo da velha" role="grid">
+                <!-- células geradas pelo JavaScript -->
+            </div>
+        </section>
+        <section class="controls">
+            <button id="btnReset"> Reiniciar jogo</button>
+            <button id="btnNovaPartida"> Nova partida (zera placar)</button>
+        </section>
+        <footer class="help">
+            <p>Dica: clique em uma célula para jogar. Passe o mouse para ver a célula em destaque.</p>
+        </footer>
+
+
+    </main>
+
+</body>
+
+</html>
